@@ -1,0 +1,17 @@
+﻿@model KoCart.Models.Person
+@{
+  ViewBag.Title = "Basic";
+}
+<h2>Hello FirstName: <span data-bind="text: firstName"></span></h2>
+<h2>Hello LastName: <span data-bind="text: lastName"></span></h2>
+@section Scripts {
+  <script>
+    var vm = function(_firstName, _lastName) {
+      var self = this;
+      self.firstName = _firstName;
+      self.lastName = _lastName;
+    };
+    var viewModel = new vm('@Model.FirstName', '@Model.LastName');
+    ko.applyBindings(viewModel);
+  </script>
+}
